@@ -9,7 +9,6 @@
     "start": "nodemon --watch backend --exec node --experimental-modules backend/server.js"
   },
 
-
   "repository": {
     "type": "git",
     "url": "git+https://github.com/mariaklean/msc-project.git"

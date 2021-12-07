@@ -12,7 +12,6 @@ dotenv.config();
 const app = express();
 
 
-/*resolve the undedifies email on postman */
 app.use(express.json());
 app.use(express.urlencoded({extend:true}));
 mongoose.connect(process.env.MONGODB_URL ||  'mongodb://localhost/project2021');
