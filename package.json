@@ -5,7 +5,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "buildClient":"cd thefrontend && npm install && npm run build",
+    "buildClient":"npm install && cd thefrontend && npm install && npm run build",
     "start": "nodemon --watch backend --exec node --experimental-modules backend/server.js"
   },
 
