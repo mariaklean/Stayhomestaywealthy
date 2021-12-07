@@ -1,11 +1,11 @@
 {
-  "name": "project2021",
+  "name": "MscProject",
   "type": "module",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "buildClient":" cd thefrontend && npm install && npm run build",
+    "buildClient":"cd thefrontend && npm install && npm run build",
     "start": "nodemon --watch backend --exec node --experimental-modules backend/server.js"
   },
 
