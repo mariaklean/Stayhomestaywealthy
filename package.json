@@ -5,10 +5,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "buildClient":"cd thefrontend && npm install && npm run build",
-    "start": "nodemon --watch backend --exec node --experimental-modules backend/server.js"
+    "buildClient": "cd thefrontend && npm install && npm run build",
+    "start": "nodemon --watch backend --exec node --experimental-modules backend/server.js",
+    "deb": "nodemon  --inspect --watch backend --exec node --experimental-modules backend/server.js"
   },
-
   "repository": {
     "type": "git",
     "url": "git+https://github.com/mariaklean/msc-project.git"
@@ -29,8 +29,11 @@
     "mongoose": "^6.0.13"
   },
   "devDependencies": {
+    "axios-mock-adapter": "^1.20.0",
     "nodemon": "^2.0.14"
   },
-  "engines": {"node":"16.11.1", "npm": "8.0.0"}
-
+  "engines": {
+    "node": "16.11.1",
+    "npm": "8.0.0"
+  }
 }

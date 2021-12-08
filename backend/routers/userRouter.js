@@ -52,14 +52,18 @@ userRouter.post('/register', expressAsyncHandler(async(req,res)=>{
 
 }));
 
+
 userRouter.get('/:id', expressAsyncHandler(async(req,res)=>
 {
     const user =await User.findById(req.params.id);
+    debugger
     if (user){
+
         res.send(user);
     }else {
         res.status(404).send({message: 'user not excist'});
     }
 }))
+
 
 export default userRouter;
