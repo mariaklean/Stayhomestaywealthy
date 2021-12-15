@@ -15,6 +15,7 @@ export default function HomeScreen() {
     dispatch(listProducts());
   }, [dispatch]);
   return (
+    <main>
     <div>
       {loading ? (
         <LoadingBox></LoadingBox>
@@ -22,14 +23,28 @@ export default function HomeScreen() {
         <MessageBox variant="danger">{error}</MessageBox>
       ) : (
         
+        
         <div className="row center">
+          <div className="row ">
+          <div>
+            <div className='card2' onsubmit="event.preventDefault();" role="search">
+            <h1>Are you starving??</h1>
 
+  <label for="search">Search for stuff</label>
+</div>
+            <br/>
+            </div>
+            </div>
        
+            <div className="row center">
+         
           {products.map((product) => (
             <Product key={product._id} product={product}></Product>
           ))}
+          </div>
         </div>
       )}
     </div>
+    </main>
   );
 }

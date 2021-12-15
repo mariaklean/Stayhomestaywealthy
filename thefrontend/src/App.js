@@ -31,18 +31,29 @@ function App() {
     return (
     <BrowserRouter>
     <div className="grid-container">
-    <header className="row">
+    <header className="nav">
         <div>
-        <img  className="logo"  src="/images/logo.png" ></img>
+        <Link to="/">   
+
+        <img  className="logo"  src="/images/logofinal.png" ></img></Link>  
         </div>
         <div>
             <ul>
                 <li > </li>
+                
+                <div className="navLi">
+                        <Link to='#'> About us </Link>
+                    </div>
+                    <div className="navLi">
+                        <Link to='#'> Restaurants </Link>
+                    </div>
                
             {
+                
                 userInfo?(
                                         //to display the name on header
-
+                    
+                                        
                     <div className="dropdown">
                     <div className="navLi">
                         <Link to='#'>{userInfo.name} <i className="fa fa-caret-down"></i></Link>
@@ -63,11 +74,14 @@ function App() {
                 </ul>
                     </div>
                     ):
-                    (
+                    (<div>
                         <div className="navLi">
 
                                     <Link to="/signin"> Sign in </Link>
                                     </div>
+                                    <div className="navLi">
+                                    
+                                </div></div>
 
                     ) 
                 
@@ -88,16 +102,17 @@ function App() {
                 </div>    
                 <div className="navLi">
                     
-                    <Link to="/productlist">product List </Link>
+                    <Link to="/productlist">Product List </Link>
                 </div> 
                 <div className="navLi">
                     
-                    <Link to="/orderlist">orders </Link>
+                    <Link to="/orderlist">Orders </Link>
                 </div> 
                
                  </ul>
                 </div>
             )}
+                
         </ul>
         </div>
         

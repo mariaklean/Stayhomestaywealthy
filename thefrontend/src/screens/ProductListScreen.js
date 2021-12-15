@@ -66,39 +66,49 @@ export default function ProductListScreen(props) {
         <table className="table">
           <thead>
             <tr>
-              <th>ID</th>
+              {/* <th>ID</th>
               <th>NAME</th>
               <th>PRICE</th>
               <th>CATEGORY</th>
               <th>DETAILS</th>
-              <th>ACTIONS</th>
+              <th>ACTIONS</th> */}
             </tr>
           </thead>
           <tbody>
             {products.map((product) => (
               <tr key={product._id}>
-                <td>{product._id}</td>
-                <td>{product.name}</td>
-                <td>{product.price}</td>
-                <td>{product.category}</td>
-                <td>{product.description}</td>
+                 <td><div> <h3>{product.name}</h3>
+                 <br/> {product.description}</div></td>
+
+                <td><img className='logo' src={product.image}></img></td>
+                <td> <div>  <t/> <br/></div> </td>
+                <td><h2> £{product.price} </h2></td>
+                <td></td>
                 <td>
-                  <button
-                    type="button"
-                    className="small"
+                <table className="table">
+                    <thead>
+                      <tr>
+                      <button
+                      type="button"
+                    className="primary"
                     onClick={() =>
                       props.history.push(`/product/${product._id}/edit`)
                     }
                   >
-                    Edit
+                    Edit...
                   </button>
-                  <button
+                      </tr>
+                    </thead>
+                    <tbody>
+                    <button
                     type="button"
                     className="small"
                     onClick={() => deleteHandler(product)}
                   >
                     Delete
                   </button>
+                      </tbody>
+                      </table>
                 </td> 
 
               </tr>

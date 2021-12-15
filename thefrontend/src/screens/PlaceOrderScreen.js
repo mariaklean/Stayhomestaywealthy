@@ -76,7 +76,7 @@ export default function PlaceOrderScreen(props) {
                         </div>
                        
                         <div>
-                          {item.qty} x ${item.price} = ${item.qty * item.price}
+                          {item.qty} x £{item.price} = £{item.qty * item.price}
                         </div>
                       </div>
                     </li>
@@ -126,7 +126,7 @@ export default function PlaceOrderScreen(props) {
                     <strong> Order Total</strong>
                   </div>
                   <div>
-                    <strong>${cart.totalPrice.toFixed(2)}</strong>
+                    <strong>£{cart.totalPrice.toFixed(2)}</strong>
                   </div>
                 </div>
               </li>

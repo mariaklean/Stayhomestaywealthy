@@ -14,6 +14,9 @@ import {
   PRODUCT_DELETE_RESET,
   PRODUCT_LIST_SUCCESS,
   PRODUCT_UPDATE_REQUEST,
+  PRODUCT_REVIEW_CREATE_REQUEST,
+  PRODUCT_REVIEW_CREATE_SUCCESS,
+  PRODUCT_REVIEW_CREATE_FAIL,
   PRODUCT_UPDATE_SUCCESS,
   PRODUCT_UPDATE_FAIL,
 
@@ -74,6 +77,8 @@ export const createProduct = () => async (dispatch, getState) => {
 };
 
 
+
+
 export const deleteProduct =(productId)=> async(dispatch,getState)=>{
   dispatch({ type: PRODUCT_DELETE_REQUEST, payload: productId });
   const {
@@ -83,6 +88,7 @@ export const deleteProduct =(productId)=> async(dispatch,getState)=>{
     const { data } = Axios.delete(`/api/products/${productId}`, {
       headers: { Authorization: `Bearer ${userInfo.token}` },
     });
+    console.log(data);
     dispatch({ type: PRODUCT_DELETE_SUCCESS , payload:data});
 
   } catch (error) {
@@ -110,5 +116,35 @@ export const updateProduct = (product) => async (dispatch, getState) => {
         ? error.response.data.message
         : error.message;
     dispatch({ type: PRODUCT_UPDATE_FAIL, error: message });
+  }
+};
+
+
+export const createReview = (productId, review) => async (
+  dispatch,
+  getState
+) => {
+  dispatch({ type: PRODUCT_REVIEW_CREATE_REQUEST });
+  const {
+    userSignin: { userInfo },
+  } = getState();
+  try {
+    const { data } = await Axios.post(
+      `/api/products/${productId}/reviews`,
+      review,
+      {
+        headers: { Authorization: `Bearer ${userInfo.token}` },
+      }
+    );
+    dispatch({
+      type: PRODUCT_REVIEW_CREATE_SUCCESS,
+      payload: data.review,
+    });
+  } catch (error) {
+    const message =
+      error.response && error.response.data.message
+        ? error.response.data.message
+        : error.message;
+    dispatch({ type: PRODUCT_REVIEW_CREATE_FAIL, payload: message });
   }
 };

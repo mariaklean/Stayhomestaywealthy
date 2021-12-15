@@ -3,6 +3,8 @@ import { userSigninReducer } from '../reducers/userReducers';
 import { USER_SIGNIN_REQUEST, USER_SIGNIN_SUCCESS } from '../constants/userConstants';
 import { PRODUCT_LIST_SUCCESS ,PRODUCT_LIST_FAIL,PRODUCT_DELETE_SUCCESS} from '../constants/productConstants';
 import bcrypt from 'bcryptjs';
+import { orderListReducer } from '../reducers/orderReducers';
+import { ORDER_CREATE_FAIL, ORDER_CREATE_SUCCESS, ORDER_DETAILS_FAIL } from '../constants/orderConstants';
 
 const initialState = {
     products: [],
@@ -14,20 +16,24 @@ const initialState = {
     ],
     loading:true
   };
+
+const orderInitialState ={
+    loading: true
+
+};
   describe('authenticate reducer', () => {
     it('returns the initial state', () => {
       expect(productListReducer(undefined, {})).toEqual(initialState);
     });
     it('check user login', () => {
-        const password =  bcrypt.hashSync('1234',8)
         expect(userSigninReducer(userInitialState, {
             type:USER_SIGNIN_SUCCESS,
-            payload :{email:"makleanthous@hotmail.com", password:password}
+            payload :{email:"makleanthous@hotmail.com", password:"1234"}
         })).
         toEqual(      
             {"loading": false, 
             "userInfo": {
-                "email": "makleanthous@hotmail.com", "password": hashSync('1234',8)}});
+                "email": "makleanthous@hotmail.com", "password":"1234"}});
       });
     it('check load product failure', () => {
         expect(productListReducer(initialState, {
@@ -35,6 +41,17 @@ const initialState = {
           error: undefined,
         })).toEqual({
           loading:false,
+          error:undefined
+        });
+    });
+
+
+    it('check load order failure', () => {
+        expect(orderListReducer(orderInitialState, {
+          type: ORDER_DETAILS_FAIL,
+          error: undefined,
+        })).toEqual({
+          loading:true,
           error:undefined
         });
     });

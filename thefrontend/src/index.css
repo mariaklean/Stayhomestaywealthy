@@ -6,6 +6,9 @@ html{
 
 }
 
+td{
+  padding-left: 3rem;
+}
 body{
   margin:0;
   
@@ -24,15 +27,18 @@ body{
 
 .navLi a, .dropbtn {
   display: inline-block;
-  color: white;
-  text-align: center;
+  color: #291B25;
+  text-align: left;
   padding: 14px 16px;
   text-decoration: none;
+  font-size: medium ;
 }
 
 
 .navLi.dropdown {
   display: inline-block;
+  justify-content: left;
+  width: fit-content;
 }
 
 #root{
@@ -48,18 +54,19 @@ body{
   'main'
   'footer';
   grid-template-columns: 1fr;
-  grid-template-rows: 5rem 1fr 5rem;
+  grid-template-rows: 10rem 1fr 5rem;
   height: 100%;
 }
 
 header{
   grid-area:header;
-  background-color:#D3D3D3	;
+  background-color:#DAD9D6	;
+  color: #291B25;
 }
 main{
   grid-area:main;
-  padding:  rem;
-  background-color:#D3D3D3	;
+  padding:  1rem;
+  background-color:#DAD9D6	;
 
 
 }
@@ -77,8 +84,8 @@ h1{
 }
 
 .logo{
-  height: 5em;
-  width: 5rem;
+  height: 12rem;
+  width: 12rem;
 }
 
 h2{
@@ -113,6 +120,7 @@ a.brand{
 
 ul{
   padding: 0;
+
   margin: 0;
   list-style-type:none;
 
@@ -125,7 +133,7 @@ li{
 
 
 button{
-  padding: 1rem;
+  padding: 1.5rem;
   border-radius: 0.5rem;
   border:0.1rem;
   font-family: Helvetica, Arial, sans-serif;
@@ -148,14 +156,23 @@ button.block{
 }
 header{
   color:#ffffff;
-  padding: 1rem;
+  padding: 3rem;
 }
 
+.nav{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  height: max-content;
+
+}
 
 .row{
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  padding-bottom: 5rem;
+
 }
 .row.center{
   justify-content: center;
@@ -309,6 +326,7 @@ form {
   display: inline-block;
   box-shadow: 10px 5px 5px #404040;
   text-align: left;
+  padding: 4rem;
 
 }
 
@@ -344,11 +362,13 @@ form {
 .buttonForms{
   justify-self: right;
   align-self: flex-end;
+  padding: 1Srem;
   float: right;
   color: #ffde59;
   font-weight: bold;
 width: 6rem;
   text-align: center;
+  font-size: large;
 }
 
 .textFormBelow{
@@ -374,7 +394,7 @@ width: 6rem;
   min-width: 12rem;
   padding: 1rem;
   z-index: 1;
-  background-color: #203040;
+  background-color:  #f0c040;
   margin: 0;
   margin-top: 3rem;
   border-radius: 0.5rem;
@@ -402,4 +422,60 @@ width: 6rem;
 
 .cntr{
   align-content: center;
+}
+
+
+:root {
+  --rad: .7rem;
+  --dur: .3s;
+  --color-dark: #2f2f2f;
+  --color-light: #fff;
+  --color-brand: #57bd84;
+  --font-fam: 'Lato', sans-serif;
+  --height: 5rem;
+  --btn-width: 6rem;
+  --bez: cubic-bezier(0, 0, 0.43, 1.49);
+}
+
+
+
+input {
+  height: var(--height);
+margin-bottom: 1rem;
+  font-family: var(--font-fam);
+  border: 0;
+  color: var(--color-dark);
+  font-size: 1.8rem;
+  justify-content: left;
+  text-align: left;
+}
+input[type="search"] {
+  outline: 0; 
+  width: 100%;
+
+  background: var(--color-light);
+  padding: 30rem 40rem;
+  padding-bottom: 4rem;
+  border-radius: var(--rad);
+  appearance: none; 
+  transition: all var(--dur) var(--bez);
+  transition-property: width, border-radius;
+  z-index: 1;
+  position: relative;
+justify-items: left;}
+
+input:not(:placeholder-shown) {
+  border-radius: var(--rad) 0 0 var(--rad);
+  width: calc(100% - var(--btn-width));
+ 
+}
+
+label {
+  position: absolute;
+  clip: rect(1px, 1px, 1px, 1px);
+  padding: 0;
+  border: 0;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
 }
